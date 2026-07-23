@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOD NEWS — Daily Signal Feed · Agent Handoff</title>
+<title>NOD NEWS — Danny Cares presents news he somewhat cares about</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -152,7 +152,20 @@
   .nav a:last-child{text-align:right;padding-right:32px}
   @media(max-width:640px){.nav a{font-size:10px;padding:12px 8px;letter-spacing:.1em}}
 
-  /* ─── FOOTER ─── */
+  /* ─── DANNY HERO ─── */
+  .danny-hero{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;padding:44px 0 36px;border-bottom:1px solid var(--line)}
+  @media(max-width:700px){.danny-hero{grid-template-columns:1fr;text-align:center}}
+  .danny-avatar{width:120px;height:120px;border-radius:14px;border:2px solid var(--rogue);box-shadow:0 0 0 4px rgba(255,59,48,0.15),0 12px 40px rgba(0,0,0,0.5);margin:0 auto}
+  .danny-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rogue);margin-bottom:10px}
+  .danny-hero h1{font-family:'Anton',sans-serif;font-size:clamp(34px,5.5vw,58px);line-height:1;letter-spacing:-.01em;color:var(--paper);text-transform:uppercase;margin-bottom:14px}
+  .danny-hero h1 em{font-style:normal;color:var(--rogue)}
+  .danny-hero p{color:var(--muted);font-size:16px;max-width:60ch}
+  .danny-hero p b{color:var(--text);font-weight:600}
+  .danny-cta{display:inline-flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+  .danny-cta a{border:1px solid var(--paper);padding:12px 22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);transition:all .15s}
+  .danny-cta a:hover{background:var(--paper);color:var(--ink)}
+  .danny-cta a.red{border-color:var(--rogue);color:var(--rogue)}
+  .danny-cta a.red:hover{background:var(--rogue);color:var(--ink)}
   footer{padding:32px 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 </style>
 </head>
@@ -199,9 +212,24 @@
     <div class="kicker">
       <span class="live">LIVE // OPS BRIEF</span>
       <span>ISSUE Nº 001 · DAILY 06:00 CT</span>
-      <span>HANDOFF → iMAC AGENT</span>
+      <span>ATTACK IDEAS · NOT IDENTITIES</span>
     </div>
   </header>
+
+  <!-- ═══════════════════ DANNY HERO ═══════════════════ -->
+  <div class="danny-hero">
+    <img class="danny-avatar" src="https://negotiatorsondemand.com/assets/coach-8bit.png" alt="Danny Cares">
+    <div>
+      <div class="danny-eyebrow">Your Anchor</div>
+      <h1>Danny Cares — Global Negotiations Sensation presenting news he <em>somewhat</em> cares about.</h1>
+      <p>Every morning the desk pulls the news and filters it through four channels — <b>Haggle, Friendship, Boss Mode, Rogue</b>. Danny reads the angles, picks the fights worth having, and tells you which deals stink. The ticker above is the pulse. The channels below are the show.</p>
+      <div class="danny-cta">
+        <a href="https://www.youtube.com/@NODNews" target="_blank" rel="noopener" class="red">▶ Watch the show</a>
+        <a href="https://tiktok.com/@negotiatorsondemand" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://negotiatorsondemand.com/trophy-room.html">Trophy Room</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════════ MISSION ═══════════════════ -->
   <section>
@@ -210,19 +238,13 @@
     <div class="mission-grid">
       <div>
         <p class="mission-lede">
-          NOD News is a daily desk that pulls the news, filters it through the four modes of the Mix &amp; Match software — <strong>HAGGLE, FRIENDSHIP, BOSS MODE, ROGUE</strong> — and outputs ready-to-film angles for each. The dashboard is one screen. Every morning at 06:00 CT, twelve stories are queued (three per mode) with a source, a headline, and a loose-cannon angle. One click sends a story to the script generator.
-        </p>
-        <p class="mission-lede">
-          This file is the handoff spec. It doubles as the visual reference for what the interface should look like. Everything below the fold is machine-readable configuration for the agent to consume, cache, and update daily.
+          NOD News is a daily desk that pulls the news, filters it through the four modes of the Mix &amp; Match software — <strong>HAGGLE, FRIENDSHIP, BOSS MODE, ROGUE</strong> — and outputs ready-to-film angles for each. Every morning at 06:00 CT, twelve stories are queued (three per mode) with a source, a headline, and a loose-cannon angle.
         </p>
       </div>
       <div class="mission-meta">
-        <div><b>PURPOSE&nbsp;&nbsp;&nbsp;</b> Daily content ideation across 4 modes</div>
-        <div><b>OUTPUT&nbsp;&nbsp;&nbsp;&nbsp;</b> 12 story cards, 4 mode digests, 1 top pick</div>
+        <div><b>PURPOSE&nbsp;&nbsp;&nbsp;</b> Daily commentary across 4 modes</div>
+        <div><b>OUTPUT&nbsp;&nbsp;&nbsp;&nbsp;</b> 12 story cards, 4 mode digests</div>
         <div><b>CADENCE&nbsp;&nbsp;&nbsp;</b> 06:00 CT · Mon–Sat</div>
-        <div><b>HOST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> Local iMac · localhost:3000</div>
-        <div><b>STACK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> Static HTML + JSON feed</div>
-        <div><b>UPDATED&nbsp;&nbsp;&nbsp;</b> On cron + on manual refresh</div>
         <div><b>RULE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> Attack ideas, not identities</div>
       </div>
     </div>
@@ -370,163 +392,25 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ SPEC ═══════════════════ -->
-  <section>
-    <div class="eyebrow">Build Spec · §03</div>
-    <h2>What to build. In this order.</h2>
-
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3>The frontend</h3>
-        <ul>
-          <li><span class="key">stack</span> Static HTML/CSS/JS or Next.js if the agent prefers</li>
-          <li><span class="key">host</span> Local iMac at <code>localhost:3000</code></li>
-          <li><span class="key">layout</span> This file is the reference. Match the grid.</li>
-          <li><span class="key">refresh</span> Auto-poll <code>/feed.json</code> every 5 min</li>
-          <li><span class="key">manual</span> Header button forces refresh</li>
-          <li><span class="key">archive</span> "Yesterday's brief" link, up to 30 days</li>
-        </ul>
-      </div>
-
-      <div class="spec-card">
-        <h3>The backend</h3>
-        <ul>
-          <li><span class="key">runtime</span> Node or Python — agent's call</li>
-          <li><span class="key">schedule</span> Cron @ 05:45 CT weekdays + Sat</li>
-          <li><span class="key">flow</span> Fetch → filter → score → angle → write JSON</li>
-          <li><span class="key">storage</span> <code>/data/YYYY-MM-DD.json</code> + <code>/data/latest.json</code></li>
-          <li><span class="key">llm</span> Use Claude API for angle generation</li>
-          <li><span class="key">fallback</span> If a mode returns &lt;3 stories, backfill from prior day + flag</li>
-        </ul>
-      </div>
-
-      <div class="spec-card">
-        <h3>Story selection logic</h3>
-        <ul>
-          <li><span class="key">volume</span> Pull ~40 candidates per mode, cut to top 3</li>
-          <li><span class="key">recency</span> Prefer &lt;24hr; hard cutoff 72hr</li>
-          <li><span class="key">scoring</span> See §04 — one formula per mode</li>
-          <li><span class="key">de-dupe</span> Cosine similarity ≥ 0.85 = drop the newer one</li>
-          <li><span class="key">safety</span> Enforce YouTube guardrails from brand bible</li>
-          <li><span class="key">bias</span> Prefer stories with public receipts + hard numbers</li>
-        </ul>
-      </div>
-
-      <div class="spec-card">
-        <h3>Angle generation</h3>
-        <ul>
-          <li><span class="key">prompt</span> "Write a one-sentence loose-cannon angle for this story, in the voice of [MODE]."</li>
-          <li><span class="key">length</span> ≤ 20 words per angle</li>
-          <li><span class="key">tone</span> Match the brand bible's mode-specific voice</li>
-          <li><span class="key">rule</span> Attack ideas, not identities. Enforce in prompt.</li>
-          <li><span class="key">variants</span> Generate 3, keep the sharpest, log the rest</li>
-          <li><span class="key">bonus</span> Also generate a title in that mode's title formula</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ DATA SOURCES ═══════════════════ -->
-  <section>
-    <div class="eyebrow">Feed Config · §04</div>
-    <h2>Where the news comes from.</h2>
-
-    <table class="datatable">
-      <thead>
-        <tr>
-          <th>Mode</th>
-          <th>Primary sources</th>
-          <th>Score weights</th>
-          <th>Filters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr data-mode="haggle">
-          <td>HAGGLE</td>
-          <td>TechCrunch · PitchBook · Crunchbase News · SEC EDGAR · Reuters Business · The Information · Bloomberg</td>
-          <td>dollar_amount × 0.35 · public_receipts × 0.25 · grift_score × 0.20 · founder_ego_index × 0.20</td>
-          <td>Skip: pure funding announcements w/ no story. Skip: pay-to-play PR wire content.</td>
-        </tr>
-        <tr data-mode="friendship">
-          <td>FRIENDSHIP</td>
-          <td>Variety · Deadline · Rolling Stone · People · X trending · TMZ (source only) · Instagram trending</td>
-          <td>engagement_velocity × 0.30 · virality_slope × 0.25 · contrarian_potential × 0.25 · public_action_only × 0.20</td>
-          <td>Skip: private-life speculation. Skip: mental-health &amp; body content. Skip: minors, always.</td>
-        </tr>
-        <tr data-mode="boss">
-          <td>BOSS MODE</td>
-          <td>WSJ · Bloomberg · FRED · BLS · layoffs.fyi · r/antiwork · r/cscareerquestions · The Information</td>
-          <td>system_critique × 0.35 · math_reveal × 0.25 · personal_story × 0.20 · anti_guru × 0.20</td>
-          <td>Skip: specific stock picks. Skip: "buy my course" bait. Skip: unsubstantiated FIRE claims.</td>
-        </tr>
-        <tr data-mode="rogue">
-          <td>ROGUE</td>
-          <td>X trending · Reddit r/unpopularopinion · controversial Substack posts · Product Hunt · Hacker News</td>
-          <td>controversy_score × 0.30 · invertability × 0.25 · everyone_believes_X × 0.25 · safety_headroom × 0.20</td>
-          <td>Skip: hate speech, slurs, protected-group attacks. Skip: election &amp; health misinfo. Skip: violence.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ═══════════════════ JSON SCHEMA ═══════════════════ -->
-  <section>
-    <div class="eyebrow">Contract · §05</div>
-    <h2>The JSON shape the frontend expects.</h2>
-    <p style="color:var(--muted);margin-bottom:8px">Agent writes <code style="background:var(--surface);padding:2px 6px;color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:12px">/data/latest.json</code> in exactly this shape. Frontend reads it. Nothing between them.</p>
-
-<div class="code-block"><span class="comment">// /data/latest.json — daily brief contract</span>
-{
-  <span class="key">"issue"</span>: <span class="num">1</span>,
-  <span class="key">"date"</span>: <span class="str">"2026-07-21"</span>,
-  <span class="key">"generated_at"</span>: <span class="str">"2026-07-21T06:00:00-05:00"</span>,
-  <span class="key">"top_pick"</span>: { <span class="key">"mode"</span>: <span class="str">"rogue"</span>, <span class="key">"story_id"</span>: <span class="str">"r-002"</span> },
-  <span class="key">"modes"</span>: [
-    {
-      <span class="key">"id"</span>: <span class="str">"haggle"</span>,
-      <span class="key">"channel"</span>: <span class="num">1</span>,
-      <span class="key">"signal_strength"</span>: <span class="num">4</span>,        <span class="comment">// 1-5, drives the bar meter</span>
-      <span class="key">"stories"</span>: [
-        {
-          <span class="key">"id"</span>: <span class="str">"h-001"</span>,
-          <span class="key">"source"</span>: <span class="str">"TechCrunch"</span>,
-          <span class="key">"url"</span>: <span class="str">"https://..."</span>,
-          <span class="key">"published_at"</span>: <span class="str">"2026-07-21T04:12:00Z"</span>,
-          <span class="key">"headline"</span>: <span class="str">"AI wrapper startup raised $80M..."</span>,
-          <span class="key">"angle"</span>: <span class="str">"The autopsy of the AI wrapper economy..."</span>,
-          <span class="key">"suggested_title"</span>: <span class="str">"$80M gone in 14 months. Line by line."</span>,
-          <span class="key">"score"</span>: <span class="num">0.87</span>,
-          <span class="key">"safety_flags"</span>: []
-        }
-        <span class="comment">// ... 2 more stories</span>
-      ]
-    }
-    <span class="comment">// ... 3 more modes (friendship, boss, rogue)</span>
-  ]
-}
-</div>
-  </section>
-
   <!-- ═══════════════════ GUARDRAILS ═══════════════════ -->
   <section>
-    <div class="eyebrow">Guardrails · §06</div>
+    <div class="eyebrow">House Rules · §03</div>
     <h2>The rules that keep this monetized.</h2>
     <div class="mission-grid">
       <div>
         <p class="mission-lede">
-          Every angle the agent generates has to pass one test: <strong>attack ideas, not identities</strong>. A CEO's strategy can be a scam. A CEO cannot be called a scammer without a conviction on file. Same rule for celebrities, founders, influencers, and public figures across all four modes. The agent's angle-generation prompt should include this line verbatim: <em>"Critique the pattern, the product, the public statement, or the system. Never critique the person's identity, body, health, or existence."</em>
+          Every angle has to pass one test: <strong>attack ideas, not identities</strong>. A CEO's strategy can be a scam. A CEO cannot be called a scammer without a conviction on file. Same rule for celebrities, founders, influencers, and public figures across all four channels.
         </p>
       </div>
       <div class="mission-meta">
         <div><b>✅ ALLOWED</b></div>
         <div>Public actions, public statements, public numbers</div>
         <div>Transformative commentary on public figures</div>
-        <div>Fair-use images for commentary</div>
         <div>Profanity, strong emotion, "not financial advice"</div>
         <div style="margin-top:12px"><b>❌ BLOCKED</b></div>
         <div>Slurs, hate speech, protected-group attacks</div>
         <div>Body-shaming, mental-health speculation</div>
-        <div>Election / health / medical misinformation</div>
+        <div>Election / health misinformation</div>
         <div>Criminal accusations without a conviction</div>
         <div>Content involving minors, ever</div>
       </div>
@@ -535,31 +419,22 @@
 
 </div>
 
-<!-- ═══════════════════ HANDOFF ═══════════════════ -->
-<div class="shell">
-  <div class="handoff">
-    <div class="eyebrow">Handoff · §07</div>
-    <h2>Agent, start here.</h2>
-    <ol>
-      <li>Read this file top to bottom. The JSON contract in §05 is the source of truth.</li>
-      <li>Scaffold the project on the iMac at <b>~/Projects/nod-news/</b>.</li>
-      <li>Copy this HTML file into <b>public/index.html</b>. Keep the design system as-is.</li>
-      <li>Wire the DOM to <b>/data/latest.json</b>. Kill the hard-coded stories once real data flows.</li>
-      <li>Build the fetcher. One module per mode. Use the source lists in §04.</li>
-      <li>Wire the angle generator to the Claude API. Enforce the prompt rule from §06.</li>
-      <li>Install a launchd job (macOS cron) for <b>05:45 CT Mon–Sat</b>.</li>
-      <li>Ship a <b>/archive</b> route that lists prior <b>YYYY-MM-DD.json</b> briefs.</li>
-      <li>Add a "Send to script gen" hook — POST the selected story to whatever endpoint runs the mode's script template from the brand bible.</li>
-      <li>Report back with the first live brief. That's issue Nº 002.</li>
-    </ol>
-  </div>
+<footer style="max-width:1440px;margin:0 auto;padding:32px">
+  <span>NOD NEWS · ISSUE Nº 001</span>
+  <span>ATTACK IDEAS · NOT IDENTITIES</span>
+  <span>A DANNY CARES PRODUCTION</span>
+</footer>
 
-  <footer>
-    <span>NOD NEWS · ISSUE Nº 001 · HANDOFF DOC</span>
-    <span>ATTACK IDEAS · NOT IDENTITIES</span>
-    <span>END OF FILE</span>
-  </footer>
-</div>
+<!-- ═══════════════════════════════════════════════════════════════════
+     AGENT HANDOFF SPEC (hidden from visitors — read the source, agent)
+     §BUILD: static HTML + JSON feed; host localhost:3000; cron 05:45 CT Mon–Sat
+     §FLOW: fetch ~40 candidates/mode → cut to 3 → Claude API writes ≤20-word angles
+     §JSON: /data/YYYY-MM-DD.json + /data/latest.json {issue,date,generated_at,top_pick,modes[{id,channel,signal_strength,stories[{id,source,url,published_at,headline,angle,suggested_title,score,safety_flags}]}]}
+     §SCORING: haggle=dollar×.35+receipts×.25+grift×.20+ego×.20 | friendship=engagement×.30+virality×.25+contrarian×.25+public×.20 | boss=system×.35+math×.25+story×.20+antiguru×.20 | rogue=controversy×.30+invert×.25+everyone_believes×.25+safety×.20
+     §SOURCES: haggle=TechCrunch/PitchBook/EDGAR/Bloomberg | friendship=Variety/Deadline/X/TMZ | boss=WSJ/FRED/BLS/layoffs.fyi | rogue=X/Reddit/Substack/HN
+     §GUARDRAIL-LINE (verbatim in angle prompt): "Critique the pattern, the product, the public statement, or the system. Never critique the person's identity, body, health, or existence."
+     §RULES: recency <24hr hard 72hr; de-dupe cosine ≥0.85; backfill <3 from prior day + flag; attack ideas not identities.
+═══════════════════════════════════════════════════════════════════ -->
 
 <script>
   // Wire the send buttons — placeholder for the real script-gen hook
@@ -570,9 +445,6 @@
       setTimeout(() => { btn.textContent = '→ Send picks to script gen'; }, 1800);
     });
   });
-
-  // Placeholder: on real deploy, replace with fetch('/data/latest.json') and hydrate
-  // window.__NOD_HYDRATE__ = () => fetch('/data/latest.json').then(r => r.json()).then(render);
 </script>
 </body>
 </html>
