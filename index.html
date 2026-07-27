@@ -6,7 +6,7 @@
 <title>NOD NEWS — Danny Cares presents news he somewhat cares about</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0f0e0d;
@@ -167,9 +167,94 @@
   .danny-cta a.red{border-color:var(--rogue);color:var(--rogue)}
   .danny-cta a.red:hover{background:var(--rogue);color:var(--ink)}
   footer{padding:32px 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  /* ─── INTRO OVERLAY ─── */
+  #intro{position:fixed;inset:0;z-index:9999;overflow:hidden;transition:opacity .8s ease}
+  #intro.done{opacity:0;pointer-events:none}
+  #intro-canvas{position:absolute;inset:0;width:100%;height:100%}
+  .intro-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .intro-nod,.intro-news{
+    font-family:'Cinzel',serif;font-weight:900;line-height:.95;letter-spacing:.02em;
+    background:linear-gradient(180deg,#fff6c8 0%,#f5d76e 25%,#e8b41c 50%,#a87408 75%,#f0cf6a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 3px 2px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(232,180,28,.45));
+    opacity:0;transform:scale(.7);animation:introPop .8s cubic-bezier(.2,1.4,.3,1) forwards;
+  }
+  .intro-nod{font-size:clamp(90px,20vw,220px);animation-delay:.5s}
+  .intro-news{font-size:clamp(70px,15vw,170px);animation-delay:1.4s}
+  .intro-tag{
+    margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.6vw,15px);
+    letter-spacing:.34em;color:#e8b41c;text-transform:uppercase;
+    opacity:0;animation:introFade .9s ease forwards;animation-delay:2.4s;
+  }
+  @keyframes introPop{to{opacity:1;transform:scale(1)}}
+  @keyframes introFade{to{opacity:1}}
 </style>
 </head>
 <body>
+<!-- ═══ INTRO OVERLAY (4s) ═══ -->
+<div id="intro" aria-hidden="true">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-text">
+    <div class="intro-nod">NOD</div>
+    <div class="intro-news">NEWS</div>
+    <div class="intro-tag">NEGOTIATIONS GLOBAL SENSATION</div>
+  </div>
+</div>
+<script>
+(function(){
+  const DURATION = 4000; // ponytail: hardcoded, no config
+  const overlay = document.getElementById('intro');
+  if (sessionStorage.getItem('nodnews-intro-seen')) { overlay.remove(); return; }
+  sessionStorage.setItem('nodnews-intro-seen','1');
+  document.body.style.overflow = 'hidden';
+
+  const cv = document.getElementById('intro-canvas');
+  const ctx = cv.getContext('2d');
+  let W, H;
+  function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  size(); addEventListener('resize', size);
+
+  // golden bokeh particles
+  const P = Array.from({length: 90}, () => ({
+    x: Math.random(), y: Math.random(),
+    r: 1 + Math.random()*4, a: .15 + Math.random()*.6,
+    vx: (Math.random()-.5)*.0004, vy: (Math.random()-.5)*.0004,
+    tw: Math.random()*Math.PI*2
+  }));
+
+  const start = performance.now();
+  function frame(now){
+    const t = now - start, p = Math.min(t / DURATION, 1);
+    // teal bg with top-center light
+    const g = ctx.createRadialGradient(W/2, -H*.2, 0, W/2, -H*.2, H*1.4);
+    g.addColorStop(0, '#1a7f8c'); g.addColorStop(.5, '#0d4a52'); g.addColorStop(1, '#05262b');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+    // light rays
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    for (let i=0;i<7;i++){
+      const x = W/2 + (i-3)*W*.09 + Math.sin(t*.0006+i)*W*.02;
+      const rg = ctx.createLinearGradient(x,0,x+W*.04,H);
+      rg.addColorStop(0,'rgba(120,220,230,.10)'); rg.addColorStop(1,'rgba(120,220,230,0)');
+      ctx.fillStyle = rg;
+      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x+W*.03,0); ctx.lineTo(x+W*.10,H); ctx.lineTo(x-W*.04,H); ctx.fill();
+    }
+    // bokeh
+    for (const q of P){
+      q.x += q.vx; q.y += q.vy;
+      if (q.x<0||q.x>1) q.vx*=-1; if (q.y<0||q.y>1) q.vy*=-1;
+      const tw = .5 + .5*Math.sin(t*.003 + q.tw);
+      ctx.beginPath(); ctx.arc(q.x*W, q.y*H, q.r, 0, 7);
+      ctx.fillStyle = `rgba(232,180,28,${(q.a*tw).toFixed(3)})`;
+      ctx.shadowColor = 'rgba(232,180,28,.8)'; ctx.shadowBlur = q.r*3;
+      ctx.fill(); ctx.shadowBlur = 0;
+    }
+    ctx.restore();
+    if (p < 1) requestAnimationFrame(frame);
+    else { overlay.classList.add('done'); document.body.style.overflow=''; setTimeout(()=>overlay.remove(), 800); }
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
 <nav class="nav">
