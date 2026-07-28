@@ -1,0 +1,10 @@
+# NOD News
+
+> Daily signal feed by Dan Cruz. Filters news through four commentary modes — HAGGLE, FRIENDSHIP, BOSS MODE, ROGUE — for loose-cannon negotiation angles.
+
+## Links
+- [NOD News](https://nodnews.com): Daily signal feed dashboard
+- [NOD main site](https://negotiatorsondemand.com): Negotiation training and tools
+- [NOD-ify app](https://negotiatorsondemand.com/MixMatch.html): 26 FBI/Voss negotiation tools
+- [TikTok](https://tiktok.com/@negotiatorsondemand): Primary social channel
+- [AI Instructions](https://negotiatorsondemand.com/ai-instructions.html): Structured info for AI assistants
