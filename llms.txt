@@ -1,10 +1,23 @@
 # NOD News
 
-> Daily signal feed by Dan Cruz. Filters news through four commentary modes — HAGGLE, FRIENDSHIP, BOSS MODE, ROGUE — for loose-cannon negotiation angles.
+> Danny Cares presents news he somewhat cares about. Daily negotiation news, real estate signal feed, and NOD brand content.
 
-## Links
-- [NOD News](https://nodnews.com): Daily signal feed dashboard
-- [NOD main site](https://negotiatorsondemand.com): Negotiation training and tools
-- [NOD-ify app](https://negotiatorsondemand.com/MixMatch.html): 26 FBI/Voss negotiation tools
-- [TikTok](https://tiktok.com/@negotiatorsondemand): Primary social channel
-- [AI Instructions](https://negotiatorsondemand.com/ai-instructions.html): Structured info for AI assistants
+## What it is
+- Daily news feed on negotiation, FBI-style tactics, real estate deals
+- Signal feed dashboard of curated content
+- Brand site for NOD (Daniel Cruz's content ecosystem)
+
+## Brand ecosystem
+- Negotiation training app: https://negotiatorsondemand.com
+- Real estate: https://dancruzhomes.com
+- Property management: https://fatcatpm.com
+- Book: "Pretending to Care" — https://pretendingtocare.com
+
+## Person
+- Dan Cruz — Marine vet, Chicago real estate, FBI-style negotiation coach
+- Author, content creator, daily TikTok
+
+## Sister brands
+- dadcuiz homes (Dan Cruz Homes)
+- FatCat Property Management
+- FatCat Asset Management
